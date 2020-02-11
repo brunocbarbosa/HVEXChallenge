@@ -5,7 +5,6 @@ const express = require('express'),
 /* CONFIGURE EXPRESS */
 const app = express();
 
-
 /* CONFIGURE BODY-PARSER */
 app.use(bodyParser.urlencoded({ extended : true }))
 app.use(bodyParser.json());
