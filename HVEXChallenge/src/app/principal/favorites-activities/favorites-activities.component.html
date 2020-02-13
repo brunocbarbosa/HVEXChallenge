@@ -1,0 +1,41 @@
+<div class="container">
+  <app-title titlePage="Favorites Activities"></app-title>
+  <div class="form-group col-auto mt-2">
+  <button *ngIf="favorites.length" class="btn btn-dark mt-4" href="#" data-toggle="modal" data-target="#delete">Delete Favorites</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover text-center">
+        <thead>
+          <tr>
+            <th>Activity</th>
+            <th>Accessibility</th>
+            <th>Type</th>
+            <th>Participants</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let favorite of favorites">
+            <td>{{ favorite.activity }}</td>
+            <td>{{ favorite.accessibility }}</td>
+            <td>{{ favorite.type }}</td>
+            <td>{{ favorite.participants }}</td>
+            <td>{{ favorite.price }}</td>
+          </tr>
+          <tr *ngIf="!favorites.length" class="text-center">
+            <td colspan="6">Activity not found</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<app-modal
+    titleModal="Delete Favorites"
+    idModal="delete"
+    titleBtn1="Confirm"
+    titleBtn2="back"
+    (btn1)="deleteFavorites()"
+    class="text-center">
+    <p>Are you sure you want delete all your favorites?</p>
+</app-modal>

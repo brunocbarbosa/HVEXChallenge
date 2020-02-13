@@ -1,0 +1,58 @@
+<div class="container">
+  <app-title titlePage="Raffle an Activity"></app-title>
+
+  <form class="mb-3" [formGroup]="activityForm">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="search">Raffle by Type</label>
+          <input type="text" formControlName="type" class="form-control" name="search" placeholder="Enter with an activity type">
+      </div>
+      <div class="form-group col-auto mt-2">
+        <button type="submit" class="btn btn-info mt-4" (click)="raffleByType()">Raffle</button>
+        <button type="submit" class="btn btn-dark mt-4 ml-5" (click)="raffleAnActivity()">Random</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-hover text-center">
+        <thead>
+          <tr>
+            <th>Activity</th>
+            <th>Accessibility</th>
+            <th>Type</th>
+            <th>Participants</th>
+            <th>Price</th>
+            <th>Option</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="activity">
+            <td>{{ activity.activity }}</td>
+            <td>{{ activity.accessibility }}</td>
+            <td>{{ activity.type }}</td>
+            <td>{{ activity.participants }}</td>
+            <td>{{ activity.price }}</td>
+            <td>
+              <app-dropdown-actions>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#save">Favorite</a>
+              </app-dropdown-actions>
+            </td>
+          </tr>
+          <tr *ngIf="!activity" class="text-center">
+            <td colspan="6">Activity not found</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<app-modal
+    titleModal="Save Favorite"
+    idModal="save"
+    titleBtn1="Confirm"
+    titleBtn2="back"
+    (btn1)="saveLocalStorage()"
+    class="text-center">
+    <p>Are you sure you want save a new favorite?</p>
+</app-modal>
