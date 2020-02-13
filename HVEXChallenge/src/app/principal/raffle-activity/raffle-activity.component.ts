@@ -32,7 +32,10 @@ export class RaffleActivityComponent implements OnInit {
   //This function will get a random activity
   raffleAnActivity(){
     this.raffleActivityService.getRandomActivity().subscribe(
-      activity => this.activity = activity
+      activity => {
+        this.alertService.success('Raffled new activity!!', true);
+        this.activity = activity
+      }
     );
   }
 
@@ -40,7 +43,10 @@ export class RaffleActivityComponent implements OnInit {
   raffleByType(){
     this.raffleActivityService.getRandomActivityByType(this.activityForm.value.type)
       .subscribe(
-        activity => this.activity = activity
+        activity => {
+          this.alertService.success('Raffled new activity by type!!', true);
+          this.activity = activity
+        }
     )
   }
 
@@ -60,6 +66,7 @@ export class RaffleActivityComponent implements OnInit {
       'Activity',
       JSON.stringify(this.local)
     )
+    this.alertService.success('new favorite saved!!', true);
   }
 
 }

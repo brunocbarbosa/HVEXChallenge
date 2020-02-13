@@ -11,8 +11,8 @@
               <ng-content></ng-content>
           </div>
           <div class="modal-footer">
-              <button type="submit" class="btn btn-outline-success" *ngIf="titleBtn1" (click)="btn1.emit()" data-dismiss="modal">{{titleBtn1}}</button>
-              <button type="button" class="btn btn-outline-danger" *ngIf="titleBtn2" (click)="btn2.emit()" data-dismiss="modal">{{titleBtn2}}</button>
+              <button type="submit" class="btn btn-success" *ngIf="titleBtn1" (click)="btn1.emit()" data-dismiss="modal">{{titleBtn1}}</button>
+              <button type="button" class="btn btn-danger" *ngIf="titleBtn2" (click)="btn2.emit()" data-dismiss="modal">{{titleBtn2}}</button>
           </div>
       </div>
     </div>

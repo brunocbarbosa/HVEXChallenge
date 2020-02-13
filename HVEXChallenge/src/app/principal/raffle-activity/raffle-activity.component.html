@@ -35,7 +35,7 @@
             <td>{{ activity.price }}</td>
             <td>
               <app-dropdown-actions>
-                <a class="dropdown-item" (click)="saveLocalStorage()">Favorite</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#save">Favorite</a>
               </app-dropdown-actions>
             </td>
           </tr>
@@ -46,3 +46,13 @@
     </table>
   </div>
 </div>
+
+<app-modal
+    titleModal="Save Favorite"
+    idModal="save"
+    titleBtn1="Confirm"
+    titleBtn2="back"
+    (btn1)="saveLocalStorage()"
+    class="text-center">
+    <p>Are you sure you want save a new favorite?</p>
+</app-modal>
