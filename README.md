@@ -8,6 +8,7 @@
 5. express
 
 ## INSTRUÇÕES
+Sistema se encontra no seguinte repositório git: https://github.com/BrunoCBarbosa/HVEXChallenge.git
 
 ## Back-End
 Back-End desenvolvido em NodeJs, no cmd ou bash, vá ao diretório `api` e digite o comando `npm install` para instalar as suas dependências,
