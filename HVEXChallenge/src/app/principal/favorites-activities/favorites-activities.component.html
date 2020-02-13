@@ -1,1 +1,29 @@
-<p>favorites-activities works!</p>
+<div class="container">
+  <app-title titlePage="Favorites Activities"></app-title>
+
+  <div class="table-responsive">
+    <table class="table table-hover text-center">
+        <thead>
+          <tr>
+            <th>Activity</th>
+            <th>Accessibility</th>
+            <th>Type</th>
+            <th>Participants</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let favorite of favorites">
+            <td>{{ favorite.activity }}</td>
+            <td>{{ favorite.accessibility }}</td>
+            <td>{{ favorite.type }}</td>
+            <td>{{ favorite.participants }}</td>
+            <td>{{ favorite.price }}</td>
+          </tr>
+          <tr *ngIf="!favorites.length" class="text-center">
+            <td colspan="6">Activity not found</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>

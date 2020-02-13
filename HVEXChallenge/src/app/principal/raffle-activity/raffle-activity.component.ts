@@ -14,6 +14,7 @@ export class RaffleActivityComponent implements OnInit {
 
   activity: Activity;
   activityForm: FormGroup;
+  local: Activity[] = []
 
   constructor(
     private raffleActivityService: RaffleActivityService,
@@ -46,9 +47,18 @@ export class RaffleActivityComponent implements OnInit {
   //Favorite
   //Save to localStorage
   saveLocalStorage(){
+    if(localStorage.getItem('Activity') === null){
+      this.local = [];
+    }else{
+      this.local = JSON.parse(
+        localStorage.getItem('Activity')
+      );
+    }
+
+    this.local.push(this.activity)
     localStorage.setItem(
       'Activity',
-      JSON.stringify(this.activity)
+      JSON.stringify(this.local)
     )
   }
 
