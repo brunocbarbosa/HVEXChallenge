@@ -19,4 +19,10 @@ export class RaffleActivityService {
   getRandomActivityByType(key){
     return this.http.get<Activity>(`${API}/activity-type/${key}`)
   }
+
+  saveFavorite(data){
+    console.log(data)
+    return this.http.post(`${API}/favorite-activity`, data)
+  }
+
 }

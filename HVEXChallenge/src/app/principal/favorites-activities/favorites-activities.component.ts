@@ -14,7 +14,7 @@ export class FavoritesActivitiesComponent implements OnInit {
   favorites:Activity[] = [];
 
   constructor(
-    private favoritesAcitivies: FavoritesActivitiesService,
+    private favoritesAcitiviesService: FavoritesActivitiesService,
     private formBuilder: FormBuilder,
     private alertService: AlertService
   ) { }
@@ -23,11 +23,17 @@ export class FavoritesActivitiesComponent implements OnInit {
     this.getFavorites()
   }
 
-  getFavorites(){
-    this.favorites = JSON.parse(
-      localStorage.getItem('Activity')
-    );
-    console.log(this.favorites)
-  }
+  // getFavorites(){
+  //   this.favorites = JSON.parse(
+  //     localStorage.getItem('Activity')
+  //   );
+  //   console.log(this.favorites)
+  // }
 
+  getFavorites(){
+    this.favoritesAcitiviesService.getFavorites().subscribe(
+      favorites => {this.favorites = favorites, console.log(favorites)}
+
+    )
+  }
 }

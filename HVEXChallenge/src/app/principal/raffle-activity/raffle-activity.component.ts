@@ -44,6 +44,13 @@ export class RaffleActivityComponent implements OnInit {
     )
   }
 
+  saveFavorite(){
+    this.raffleActivityService.saveFavorite(this.activity).subscribe(
+      success => console.log('foi'),
+      error => console.log(error)
+    )
+  }
+
   //Favorite
   //Save to localStorage
   saveLocalStorage(){
